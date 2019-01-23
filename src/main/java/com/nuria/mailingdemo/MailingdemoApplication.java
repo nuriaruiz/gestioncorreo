@@ -18,8 +18,7 @@ public class MailingdemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		sendGridEmailService.sendHTML("nuria.ruiz@gmail.com", "nuria.ruiz@gmail.com", "Hello World", "Hello, <strong>how are you doing?</strong>");
+		sendGridEmailService.sendHTML("nuria.ruiz@gmail.com", "nuria.ruizaaaaaaaaaaaaas@gmail.com", "Hello World", "Hello, <strong>how are you doing?</strong>");
 	}
 }
 

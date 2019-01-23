@@ -1,4 +1,4 @@
-package com.nuria.mailingdemo;
+package com.nuria.mailingdemo.service;
 
 import java.io.IOException;
 
