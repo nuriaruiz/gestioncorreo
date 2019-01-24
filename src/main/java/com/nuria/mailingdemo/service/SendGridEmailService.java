@@ -1,6 +1,5 @@
-package com.nuria.mailingdemo;
+package com.nuria.mailingdemo.service;
 
-import com.nuria.mailingdemo.service.EmailService;
 import com.sendgrid.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -1,7 +1,7 @@
 package com.nuria.mailingdemo.controller;
 
 import com.nuria.mailingdemo.model.BouncedMail;
-import com.nuria.mailingdemo.SendGridEmailService;
+import com.nuria.mailingdemo.service.SendGridEmailService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
