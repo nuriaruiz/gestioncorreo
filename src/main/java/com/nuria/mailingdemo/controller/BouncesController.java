@@ -21,12 +21,14 @@ public class BouncesController {
     SendGridEmailService sendGridEmailService;
 
     @PostMapping("/bouncedmail")
-    void newEmployee(@RequestBody BouncedMail bouncedMail) {
+    void newEmployee(@RequestBody BouncedMail[] bouncedMail) {
         try {
             // Get string date from timestamp
-            Timestamp ts = new Timestamp(Long.valueOf(bouncedMail.getTimestamp()));
-            sendGridEmailService.sendHTML("nuria.ruiz@gmail.com", "nuria.ruiz@gmail.com", "Bounced mail", "Hello, <strong>" + bouncedMail.getEmail() + "</strong> has been bounced. " +
-                    "" + bouncedMail.getReason() + ". " + ts.toString());
+            Timestamp ts = new Timestamp(Long.valueOf(bouncedMail[0].getTimestamp()));
+            LOG.info("Bounded mails: "+bouncedMail[0].toString());
+
+            sendGridEmailService.sendHTML("nuria.ruiz@gmail.com", "nuria.ruiz@gmail.com", "Bounced mail", "Hello, <strong>" + bouncedMail[0].getEmail() + "</strong> has been bounced. " +
+                    " Reason: " + bouncedMail[0].getReason() + ". " + ts.toString());
         } catch (IOException e) {
             LOG.error("Error receiving bounced mail: " + e.getMessage());
         }

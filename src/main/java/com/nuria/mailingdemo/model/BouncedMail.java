@@ -1,17 +1,26 @@
 package com.nuria.mailingdemo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BouncedMail {
 
     private String email;
-    private String timestamp;
+    private long timestamp;
+    @JsonProperty("smtp-id")
     private String smtpId;
     private String event;
     private String category;
+    @JsonProperty("sg_event_id")
+    private String sgEventId;
+    @JsonProperty("sg_message_id")
+    private String sgMessageId;
+    private String reason;
+    private String status;
 
     public BouncedMail() {
     }
 
-    public BouncedMail(String email, String timestamp, String smtpId, String event, String category, String sgEventId, String sgMessageId, String reason, String status) {
+    public BouncedMail(String email, long timestamp, String smtpId, String event, String category, String sgEventId, String sgMessageId, String reason, String status) {
         this.email = email;
         this.timestamp = timestamp;
         this.smtpId = smtpId;
@@ -23,21 +32,17 @@ public class BouncedMail {
         this.status = status;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getEmail() { return email; }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
+    public void setTimestamp(long timestamp) { this.timestamp = timestamp; }
 
     public String getSmtpId() {
         return smtpId;
@@ -95,10 +100,19 @@ public class BouncedMail {
         this.status = status;
     }
 
-    private String sgEventId;
-    private String sgMessageId;
-    private String reason;
-    private String status;
 
-
+    @Override
+    public String toString() {
+        return "BouncedMail{" +
+                "email='" + email + '\'' +
+                ", timestamp=" + timestamp +
+                ", smtpId='" + smtpId + '\'' +
+                ", event='" + event + '\'' +
+                ", category='" + category + '\'' +
+                ", sgEventId='" + sgEventId + '\'' +
+                ", sgMessageId='" + sgMessageId + '\'' +
+                ", reason='" + reason + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }
